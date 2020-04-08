@@ -12,9 +12,9 @@
  */
 
 void parse(char* line, int* i1, int* i2) {
-	int base = atoi(strtok(line, " "));
+	int coef = atoi(strtok(line, " "));
 	int exp = atoi(strtok(NULL, " "));
-	*i1 = base;
+	*i1 = coef;
 	*i2 = exp;
 }
 
