@@ -42,20 +42,18 @@ int addPolyTerm(int coef, int exp) {
 		struct PolyTerm *node = head;	
 		while (node->next != NULL || head->next == NULL) {
 			int i = node->next->expo;
-			printf("%i\n", i);	
+				
 			if (node->next->expo < p->expo){
 				node = node->next;
-				printf("here1\n");
+				
 			} else if (node->next->expo > p->expo) {
 				struct PolyTerm *tmp = node->next;
 				node->next = p;
 				p->next = tmp;
-				printf("here2");
+				
 				return 1;
 			} else {
-				printf("here3");
 				node->coeff = node->coeff + p->coeff;
-				printf("\n%i", node->coeff);
 				return 1;
 			}
 		}
@@ -81,27 +79,33 @@ void displayPolynomial(){
 }
 
 void evaluatePolynomial() {
-	int arr[5] = {-2,-1,0,1,2};
+	int *arr;
+	arr = malloc(5 * sizeof(int));
+	arr[0] = -2;
+	arr[1] = -1;
+	arr[2] = 0;
+	arr[3] = 1;
+	arr[4] = 2;
 	int res;
 	int i;
-	int test = powi(2,2);
-	printf("here123, %i\n", test);
+	printf("\n");	
 	for (i = 0; i<5; i++) {
 		int a;
 		int b;
 		struct PolyTerm *p;
+		p = (struct PolyTerm *) malloc(sizeof(struct PolyTerm));
 		p = head;
 		res = head->coeff * powi(arr[i], p->expo);
-		printf("%i\n",res);
-		while (p->next != NULL) {
-			res += p->next->coeff * powi(arr[i], p->next->expo);
+		p = p->next;
+		
+		while (p != NULL) {
+			res += p->coeff * powi(arr[i], p->expo);
 			p = p->next;
 		}
 		if (i == 0) {
-			printf("for x=%i, y=%i", arr[i], res);
+			printf("for x=%i, y=%i\n", arr[i], res);
 		} else {
-			printf("\nfor x=%i, y=%i", arr[i], res);
+			printf("for x=%i, y=%i\n", arr[i], res);
 		}
-		
 	}
 }
