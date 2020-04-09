@@ -1,0 +1,35 @@
+commit 17cfee8c1c353f8753857f9fb69a3fadbf2813ba
+Author: Brendan MARKS <bmarks3@teaching.CS.McGill.CA>
+Date:   Wed Apr 8 21:16:30 2020 -0400
+
+    finish
+
+commit 9fffdf227d2f22b65bc92ffea5547c79ee51c570
+Author: Brendan MARKS <bmarks3@teaching.CS.McGill.CA>
+Date:   Wed Apr 8 15:54:59 2020 -0400
+
+    done except segmentation fault
+
+commit c3bf3e8fad09ba1d9c8ed900be2ef42e902f3570
+Author: Brendan MARKS <bmarks3@teaching.CS.McGill.CA>
+Date:   Wed Apr 8 14:18:47 2020 -0400
+
+    progress and debugging
+
+commit 487ed9af1cf6245ba1284c5804325402f1fb852b
+Author: Brendan MARKS <bmarks3@teaching.CS.McGill.CA>
+Date:   Tue Apr 7 16:56:55 2020 -0400
+
+    poly file progress
+
+commit ee9543896398f805d6b073490694f711bef48402
+Author: Brendan MARKS <bmarks3@teaching.CS.McGill.CA>
+Date:   Tue Apr 7 14:25:40 2020 -0400
+
+    create and fill files
+
+commit 62769c08b49480b7ee68abaab9b5054b679a19e6
+Author: Brendan MARKS <bmarks3@teaching.CS.McGill.CA>
+Date:   Tue Apr 7 12:39:59 2020 -0400
+
+    initial commit
