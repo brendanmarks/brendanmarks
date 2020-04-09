@@ -17,7 +17,7 @@
 int main(int argc, char *argv[]) {
 	
 	FILE *f = fopen("data.ssv", "rt");
-
+	// parse all lines of the file and add them to LL
 	char array[10000];
 	fgets(array, 9999, f); 
 	while(!feof(f)){
@@ -28,9 +28,9 @@ int main(int argc, char *argv[]) {
 		fgets(array, 9999, f);
 	}
 	fclose(f);
-
+	//display poly
 	displayPolynomial();
-	
+	//evaluate poly
 	evaluatePolynomial();
 
 	

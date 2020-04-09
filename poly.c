@@ -15,6 +15,7 @@
 struct PolyTerm *head = NULL;
 struct PolyTerm *tail = NULL;
 
+// Node of LL struct
 struct PolyTerm {
 	int coeff;
 	int expo;
@@ -22,8 +23,12 @@ struct PolyTerm {
 
 };
 
+
+//fn to add poly to LL
 int addPolyTerm(int coef, int exp) {
 	//printf("here-1");
+	
+	//Start at head and insert it in right place
 	struct PolyTerm *p;
         p = (struct PolyTerm *) malloc(sizeof(struct PolyTerm));
 	p->coeff = coef;
@@ -69,9 +74,11 @@ int addPolyTerm(int coef, int exp) {
 	return 1;
 } 
 
+
 void displayPolynomial(){
 	struct PolyTerm *p;
 	p = head;
+	//loop through poly and show it in right format
 	if (head != NULL) {
 		printf("%ix%i", p->coeff, p->expo);
 		while (p->next != NULL) {
@@ -96,6 +103,7 @@ void evaluatePolynomial() {
 	int res;
 	int i;
 	printf("\n");	
+	//loop through evaluations and show results
 	for (i = 0; i<5; i++) {
 		int a;
 		int b;

@@ -11,6 +11,7 @@
  *
  */
 
+//parse string and store ints in right addresses
 void parse(char* line, int* i1, int* i2) {
 	int coef = atoi(strtok(line, " "));
 	int exp = atoi(strtok(NULL, " "));
@@ -18,6 +19,8 @@ void parse(char* line, int* i1, int* i2) {
 	*i2 = exp;
 }
 
+
+//russian peasant exponentiation
 int powi(int base, int exp) {
 	if (exp == 0) {
 		return 1;
