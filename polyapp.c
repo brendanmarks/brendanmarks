@@ -14,19 +14,25 @@
 
 
 
-void main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
 	
-	FILE *f = fopen(argv[1], "rt");
-	char array[1000];
-	fgets(array, 999, f); 
+	FILE *f = fopen("data.ssv", "rt");
+
+	char array[10000];
+	fgets(array, 9999, f); 
 	while(!feof(f)){
 		int co;
 		int ex;
 		parse(array, &co, &ex);
 		addPolyTerm(co, ex);	
-		fgets(array, 999, f);
+		fgets(array, 9999, f);
 	}
+	fclose(f);
+
 	displayPolynomial();
+	
 	evaluatePolynomial();
-	printf("here, inally");
+
+	
+	return 0;
 }

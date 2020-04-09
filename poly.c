@@ -23,14 +23,18 @@ struct PolyTerm {
 };
 
 int addPolyTerm(int coef, int exp) {
+	//printf("here-1");
 	struct PolyTerm *p;
         p = (struct PolyTerm *) malloc(sizeof(struct PolyTerm));
 	p->coeff = coef;
 	p->expo = exp;
 	p->next = NULL;
+	
 	if (head == NULL) {
 		head = p;			
 	} else {
+		struct PolyTerm *node;
+		node = head;
 		if (p->expo < head->expo) {
 			p->next = head;
 			head = p;
@@ -38,33 +42,36 @@ int addPolyTerm(int coef, int exp) {
 		} else if (p->expo == head->expo) {
 			head->coeff = head->coeff + p->coeff;
 			return 1;
+		} else if (node->next == NULL) {
+			node->next = p;
+			return 1;
 		}
-		struct PolyTerm *node = head;	
-		while (node->next != NULL || head->next == NULL) {
-			int i = node->next->expo;
-				
+			
+		while (node->next != NULL) {				
 			if (node->next->expo < p->expo){
 				node = node->next;
 				
 			} else if (node->next->expo > p->expo) {
-				struct PolyTerm *tmp = node->next;
+				struct PolyTerm *tmp;
+				tmp = (struct PolyTerm *) malloc(sizeof(struct PolyTerm));
+				tmp = node->next;
 				node->next = p;
-				p->next = tmp;
-				
+				p->next = tmp;		
 				return 1;
 			} else {
-				node->coeff = node->coeff + p->coeff;
+				node->next->coeff = node->next->coeff + p->coeff;
 				return 1;
 			}
 		}
+		//printf("here!");
 		node->next=p;
-	}			
+	}
 	return 1;
 } 
 
 void displayPolynomial(){
 	struct PolyTerm *p;
-	*p = *head;
+	p = head;
 	if (head != NULL) {
 		printf("%ix%i", p->coeff, p->expo);
 		while (p->next != NULL) {
@@ -93,13 +100,13 @@ void evaluatePolynomial() {
 		int a;
 		int b;
 		struct PolyTerm *p;
-		p = (struct PolyTerm *) malloc(sizeof(struct PolyTerm));
-		p = head;
-		res = head->coeff * powi(arr[i], p->expo);
-		p = p->next;
-		
+        	p = (struct PolyTerm *) malloc(sizeof(struct PolyTerm));
+        	p = head;
+		res = 0;
+				
 		while (p != NULL) {
-			res += p->coeff * powi(arr[i], p->expo);
+			int x = p->coeff * powi(arr[i], p->expo);
+			res += x;
 			p = p->next;
 		}
 		if (i == 0) {
@@ -107,5 +114,8 @@ void evaluatePolynomial() {
 		} else {
 			printf("for x=%i, y=%i\n", arr[i], res);
 		}
+		free(p);
 	}
+		
+	free(arr); 
 }

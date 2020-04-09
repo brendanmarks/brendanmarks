@@ -19,7 +19,10 @@ void parse(char* line, int* i1, int* i2) {
 }
 
 int powi(int base, int exp) {
-	if (exp <= 1) {
+	if (exp == 0) {
+		return 1;
+	}
+	if (exp == 1) {
 		return base;
 	}
 	if (exp % 2 == 0) {
